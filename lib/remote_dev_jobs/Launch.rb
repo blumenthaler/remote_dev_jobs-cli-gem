@@ -1,4 +1,4 @@
-
+require 'pry'
 class RemoteDevJobs::Launch
   
   def self.logo
@@ -32,6 +32,7 @@ class RemoteDevJobs::Launch
     puts "2. Authentic Jobs"
     puts "3. We Work Remotely (100% Remote Jobs)"
     puts "4. FlexJobs (Entry-level focus, company name requires login)"
+    @input = gets.chomp
   end
 
   def self.wait_message
@@ -42,30 +43,29 @@ class RemoteDevJobs::Launch
 
 
 def self.sitemenu
-  input = "X"
-  while input != 'exit'
-    input = gets.chomp
-    if input == '1'
+  while @input != 'exit'
+    if @input == '1'
       wait_message
       RemoteDevJobs::CLI.new.run(StackScraper)
       search_options
-    elsif input == '2'
+    elsif @input == '2'
       wait_message
       RemoteDevJobs::CLI.new.run(AuthenticScraper)
       search_options
-    elsif input == '3'
+    elsif @input == '3'
       wait_message
       RemoteDevJobs::CLI.new.run(WeWorkRemotelyScraper)
       search_options
-    elsif input == '4'
+    elsif @input == '4'
       wait_message
       RemoteDevJobs::CLI.new.run(FlexJobsScraper)
       search_options
+    elsif @input == 'exit'
+      'do nothing'
     end
   end
 end
-ARGV.clear
-STDOUT.flush
+
 self.search_options
 self.sitemenu
 
