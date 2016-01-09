@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
-require 'remote_dev_jobs'
+
 
 class RemoteDevJobs::Launch::StackScraper
   def self.scrape_job_list

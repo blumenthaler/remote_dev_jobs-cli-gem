@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
-require 'remote_dev_jobs'
+
 class RemoteDevJobs::Launch::WeWorkRemotelyScraper
   def self.scrape_job_list
     data = Nokogiri::HTML(open("https://weworkremotely.com/categories/2-programming/jobs#intro"))

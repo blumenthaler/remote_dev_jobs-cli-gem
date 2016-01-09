@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
-require 'remote_dev_jobs'
 class RemoteDevJobs::Launch::AuthenticScraper
   def self.scrape_job_list
     data = Nokogiri::HTML(open("https://authenticjobs.com/#types=7,1,5,4&onlyremote=1"))

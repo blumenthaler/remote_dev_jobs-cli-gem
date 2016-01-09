@@ -1,4 +1,4 @@
-require 'remote_dev_jobs'
+
 class RemoteDevJobs::CLI::Job
   attr_accessor :company, :location, :position, :description, :job_url, :seniority, :company_site
 

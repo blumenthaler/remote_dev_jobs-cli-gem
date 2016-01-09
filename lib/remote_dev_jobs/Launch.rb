@@ -1,4 +1,4 @@
-require 'remote_dev_jobs'
+
 class RemoteDevJobs::Launch
   
   def self.logo
@@ -47,24 +47,25 @@ def self.sitemenu
     input = gets.chomp
     if input == '1'
       wait_message
-      RemoteJobs::CLI.new.run(StackScraper)
+      RemoteDevJobs::CLI.new.run(StackScraper)
       search_options
     elsif input == '2'
       wait_message
-      RemoteJobs::CLI.new.run(AuthenticScraper)
+      RemoteDevJobs::CLI.new.run(AuthenticScraper)
       search_options
     elsif input == '3'
       wait_message
-      RemoteJobs::CLI.new.run(WeWorkRemotelyScraper)
+      RemoteDevJobs::CLI.new.run(WeWorkRemotelyScraper)
       search_options
     elsif input == '4'
       wait_message
-      RemoteJobs::CLI.new.run(FlexJobsScraper)
+      RemoteDevJobs::CLI.new.run(FlexJobsScraper)
       search_options
     end
   end
 end
-
+ARGV.clear
+STDOUT.flush
 self.search_options
 self.sitemenu
 

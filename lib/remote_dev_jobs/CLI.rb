@@ -1,5 +1,5 @@
 require 'launchy'
-require 'remote_dev_jobs'
+
 class RemoteDevJobs::CLI
 
   def run(site_class)

@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
-require 'remote_dev_jobs'
+
 class RemoteDevJobs::Launch::FlexJobsScraper
   def self.scrape_job_list
     data = Nokogiri::HTML(open("https://www.flexjobs.com/search?accolade=&career_level=Entry-Level&cats%5B%5D=38&country=&exclude=&location=&search=&tele_level=Any+Level+of+Telecommuting&will_travel="))
