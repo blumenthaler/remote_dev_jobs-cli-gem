@@ -5,4 +5,5 @@ require_all 'lib'
 require 'remote_dev_jobs'
 
 
-RemoteDevJobs::Launch.new
+RemoteDevJobs::Launch.search_options
+RemoteDevJobs::Launch.sitemenu

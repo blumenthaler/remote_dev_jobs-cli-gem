@@ -22,39 +22,42 @@ class RemoteDevJobs::CLI
   end
 
   def display_jobs
+    color_codes = [39, "31", "32", "33", "34", "35", "36", "37", "91", "92", "93", "94", "95", "96"]
+    i = 0
     Job.all.each do |job|
-      puts "\n#{job.company}:" if job.company
-      puts "  #{job.position}"
-      puts "  #{job.location}"
+      puts "\e[32m#{job.number}."
+      puts "\n\e[34m#{job.company}:" if job.company
+      puts "  \e[91m#{job.position}"
+      puts "  \e[92m#{job.location}"
       if job.company == nil
-        puts "\n #{job.description}"
+        puts "\n \e[37m#{job.description}"
       end
-      puts "  Seniority: #{job.seniority}" if job.seniority
-      puts "\n#{'#' * 20}\n"
+      puts "  \e[37mSeniority: #{job.seniority}" if job.seniority
+      puts "\n\e[32m#{'#' * 20}\n"
+      i += 1
     end
   end
 
   def show_job_info
     choice = 'X'
-    puts "\n\n#{Job.all.count} jobs found! Scroll up to view them all."
+    puts "\n\n\e[33m#{Job.all.count} jobs found! Scroll up to view them all.\e[0m"
     puts "\nIf you would like to see more information about a job,"
     puts "here are your options:"
     puts "\n(Options 1 and 3 not available for FlexJobs)"
-    puts "\n1.   To see a description of the company and position,"
-    puts "     please type the company name exactly as it appears:"
+    puts "\n\e[32m1.\e[37m    To see a description of the company and position,"
+    puts "     please type the number of the company:"
     puts ""
-    puts "2.   To visit the job page, type the company name followed"
-    puts "     by 'job page' (if searching FlexJobs, type the position"
-    puts "     followed by 'job page'):"
+    puts "\e[32m2.\e[37m    To visit the job page, type the number of the"
+    puts "     company, followed by 'job page':"
     puts ""
-    puts "3.   To visit the company website, type the company name"
-    puts "     followed by 'site':"
+    puts "\e[32m3.\e[37m    To visit the company website, type the number of the"
+    puts "     company, followed by 'site':"
     puts "(Type exit if you would like to exit to the main menu)"
     while choice != 'exit'
       choice = gets.chomp
       already_opened = nil
       Job.all.each do |job|
-        if job.company == choice
+        if job.number == choice
           10.times do puts "" end
           puts "Description:"
           puts "\n  #{job.description}"
@@ -63,9 +66,9 @@ class RemoteDevJobs::CLI
             puts "\n  #{job.company_site}"
           end
           puts "\n(You may need to scroll up to see the menu again.)"
-        elsif "#{job.company} job page" == choice || ("#{job.position} job page" == choice && job.company == nil)
+        elsif "#{job.number} job page" == choice #|| ("#{job.position} job page" == choice && job.company == nil)
           Launchy.open("#{job.job_url}")
-        elsif "#{job.company} site" == choice && already_opened == nil
+        elsif "#{job.number} site" == choice && already_opened == nil
           if job.company_site != "Not listed." 
             Launchy.open("#{job.company_site}")
             already_opened = "yep"

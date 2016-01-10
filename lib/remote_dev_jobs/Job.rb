@@ -1,6 +1,6 @@
 
 class RemoteDevJobs::CLI::Job
-  attr_accessor :company, :location, :position, :description, :job_url, :seniority, :company_site
+  attr_accessor :company, :location, :position, :description, :job_url, :seniority, :company_site, :number
 
   @@all = []
 
@@ -12,9 +12,10 @@ class RemoteDevJobs::CLI::Job
   end
 
   def self.create_from_collection(jobs_array)
-    jobs_array.each do |job|
+    jobs_array.each_with_index do |job, index|
       if job
         job_hash = {
+          number: index + 1,
           company: job[:company],
           location: job[:location],
           position: job[:position],
