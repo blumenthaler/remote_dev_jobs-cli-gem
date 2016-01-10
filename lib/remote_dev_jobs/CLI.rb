@@ -57,18 +57,18 @@ class RemoteDevJobs::CLI
       choice = gets.chomp
       already_opened = nil
       Job.all.each do |job|
-        if job.number == choice
+        if job.number.to_s == choice && job.company
           10.times do puts "" end
-          puts "Description:"
-          puts "\n  #{job.description}"
+          puts "\e[91mDescription:"
+          puts "\n  \e[37m#{job.description}"
           if job.company_site
-            puts "\nCompany Website:"
-            puts "\n  #{job.company_site}"
+            puts "\n\e[91mCompany Website:"
+            puts "\n \e[37m#{job.company_site}"
           end
           puts "\n(You may need to scroll up to see the menu again.)"
-        elsif "#{job.number} job page" == choice #|| ("#{job.position} job page" == choice && job.company == nil)
+        elsif "#{job.number} job page" == choice 
           Launchy.open("#{job.job_url}")
-        elsif "#{job.number} site" == choice && already_opened == nil
+        elsif "#{job.number} site" == choice && job.company && already_opened == nil
           if job.company_site != "Not listed." 
             Launchy.open("#{job.company_site}")
             already_opened = "yep"
