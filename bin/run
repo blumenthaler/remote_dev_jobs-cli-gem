@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
 
-require 'remote_dev_jobs'
-
+require 'require_all'
+require_all 'lib'
 
 RemoteDevJobs::Launch.search_options
 RemoteDevJobs::Launch.sitemenu
