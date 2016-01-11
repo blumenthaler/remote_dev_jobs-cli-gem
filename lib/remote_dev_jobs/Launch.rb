@@ -1,4 +1,4 @@
-require 'pry'
+
 class RemoteDevJobs::Launch
   
   def self.logo
