@@ -1,6 +1,10 @@
 
 
 
+module RemoteDevJobs
+  
+end
+
 require 'remote_dev_jobs/CLI.rb'
 require 'remote_dev_jobs/Launch.rb'
 require 'remote_dev_jobs/Job.rb'
@@ -14,6 +18,3 @@ require 'remote_dev_jobs/WeWorkRemotelyScraper.rb'
 # require_all 'lib'
 
 
-module RemoteDevJobs
-  
-end

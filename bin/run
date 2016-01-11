@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
 
-# require 'require_all'
-# require_all 'lib/remote_dev_jobs'
-require 'remote_dev_jobs'
+require 'require_all'
+require_rel '../lib/remote_dev_jobs'
+# require 'remote_dev_jobs'
+
 
 RemoteDevJobs::Launch.search_options
 RemoteDevJobs::Launch.sitemenu
