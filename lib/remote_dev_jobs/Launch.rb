@@ -44,7 +44,7 @@ class RemoteDevJobs::Launch
 def self.sitemenu
   input = 'X'
   while input != 'exit'
-    input = gets.chomp
+    input = STDIN.gets.chomp
     if input == '1'
       wait_message
       RemoteDevJobs::CLI.new.run(StackScraper)

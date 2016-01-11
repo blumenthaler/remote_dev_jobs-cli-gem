@@ -54,7 +54,7 @@ class RemoteDevJobs::CLI
     puts "     company, followed by 'site':"
     puts "(Type exit if you would like to exit to the main menu)"
     while choice != 'exit'
-      choice = gets.chomp
+      choice = STDIN.gets.chomp
       already_opened = nil
       Job.all.each do |job|
         if job.number.to_s == choice && job.company
