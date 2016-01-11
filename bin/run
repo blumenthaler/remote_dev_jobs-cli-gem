@@ -3,7 +3,7 @@
 
 require 'require_all'
 require_rel '../lib/remote_dev_jobs'
-# require 'remote_dev_jobs'
+
 
 
 RemoteDevJobs::Launch.search_options

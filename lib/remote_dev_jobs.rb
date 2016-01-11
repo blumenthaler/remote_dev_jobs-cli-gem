@@ -14,7 +14,5 @@ require 'remote_dev_jobs/StackScraper.rb'
 require 'remote_dev_jobs/version.rb'
 require 'remote_dev_jobs/WeWorkRemotelyScraper.rb'
 
-# require 'require_all'
-# require_all 'lib'
 
 
