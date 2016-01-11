@@ -1,5 +1,5 @@
-require 'require_all'
-require_all 'lib'
+
+require 'remote_dev_jobs'
 
 
 module RemoteDevJobs
