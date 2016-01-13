@@ -24,13 +24,13 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "bin"
-  spec.executables   = ["run"]
+  spec.executables   = ["remote-jobs"]
   spec.require_paths = ["lib", "lib/remote_dev_jobs"]
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency 'pry', '~> 0'
-  spec.add_development_dependency 'require_all'
+  spec.add_dependency 'require_all'
   spec.add_development_dependency 'nokogiri'
   spec.add_development_dependency 'launchy'
   spec.add_development_dependency 'rspec'

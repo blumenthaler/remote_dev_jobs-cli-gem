@@ -31,7 +31,6 @@ class RemoteDevJobs::CLI::Job
     attributes_hash.each do |attr, value|
       self.send("#{attr}=", value)
     end
-    self
   end
 
   def self.all
@@ -39,3 +38,4 @@ class RemoteDevJobs::CLI::Job
   end
 
 end
+

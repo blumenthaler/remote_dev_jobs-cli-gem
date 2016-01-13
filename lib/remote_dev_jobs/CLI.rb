@@ -22,8 +22,6 @@ class RemoteDevJobs::CLI
   end
 
   def display_jobs
-    color_codes = [39, "31", "32", "33", "34", "35", "36", "37", "91", "92", "93", "94", "95", "96"]
-    i = 0
     Job.all.each do |job|
       puts "\e[32m#{job.number}."
       puts "\n\e[34m#{job.company}:" if job.company
@@ -34,7 +32,6 @@ class RemoteDevJobs::CLI
       end
       puts "  \e[37mSeniority: #{job.seniority}" if job.seniority
       puts "\n\e[32m#{'#' * 20}\n"
-      i += 1
     end
   end
 

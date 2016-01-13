@@ -9,6 +9,9 @@ require "remote_dev_jobs"
 
 # (If you use this, don't forget to add pry to your Gemfile!)
 # require "pry"
+RemoteDevJobs::Launch.search_options
+RemoteDevJobs::Launch.sitemenu
+
 
 require "irb"
 IRB.start
