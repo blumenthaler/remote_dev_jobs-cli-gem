@@ -10,7 +10,7 @@ class RemoteDevJobs::CLI
   end
 
   def make_jobs(site_class)
-    jobs_array = site_class.scrape_job_list
+    jobs_array = site_class.scrape_job_list.compact
     Job.create_from_collection(jobs_array)
   end
 
